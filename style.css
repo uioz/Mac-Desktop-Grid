@@ -1,0 +1,125 @@
+:root {
+  user-select: none;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #333;
+}
+
+html,
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* let's rock! */
+
+header {
+  background: rgba(255, 255, 255, .8);
+  /* if this doesn't work please go check readme.md */
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0px -15px 33px rgba(0, 0, 0, .8);
+}
+
+.desktop {
+  display: grid;
+  grid-template-rows: 2.512vh 1fr 7.53vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("./static/background.jpg") no-repeat center center / cover;
+}
+
+header>nav {
+  display: contents;
+}
+
+header>nav>ul,
+footer>nav>ul {
+  display: flex;
+  height: 100%;
+}
+
+header>nav>ul>li {
+  font-size: 14px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+header>nav>ul>li.bold {
+  font-weight: bold;
+}
+
+header>nav>ul>li.apple-logo {
+  background: content-box url("./static/image_large.svg")no-repeat center center/16px 44px;
+  filter: invert(80%);
+  width: 16px;
+}
+
+footer>nav {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+footer>nav>ul {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0 5px;
+  align-items: center;
+  background: rgba(255, 255, 255, .5);
+  /* if this doesn't work please go check readme.md */
+  backdrop-filter: blur(20px);
+  border-radius: 7px 7px 0 0;
+}
+
+footer>nav>ul>li {
+  position: relative;
+  padding: 0 5px;
+  width: 5.02vh;
+
+  cursor: pointer;
+  transition: 500ms all cubic-bezier(1, 0, 0, 1);
+}
+
+footer>nav>ul>li>img {
+  display: block;
+  margin: 0 auto;
+  transform: scale(1);
+  transition: 500ms all cubic-bezier(0, .75, .15, 1.07);
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0));
+  transform-origin: center 100%;
+  width: 5.02vh;
+  height: 5.02vh;
+}
+
+footer>nav>ul>li:hover {
+  width: calc(5.02vh * 1.8);
+}
+
+footer>nav>ul>li:hover>img {
+  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, .3));
+  transform: scale(1.8);
+}
+
+footer>nav>ul>li::after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  left: calc(50% - 5px / 2);
+  bottom: -8px;
+  background-color: transparent;
+  border-radius: 100%;
+}
+
+footer>nav>ul>li.hover::after,
+footer>nav>ul>li:hover::after {
+  background-color: currentColor;
+}
